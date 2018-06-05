@@ -6,8 +6,9 @@ date:       2018-06-05
 author:     wfang
 header-img: img/post-bg-2018-06-05-walk.jpeg
 catalog:    false
-tags:       -life
-            -study
+tags:       
+    -life
+    -study
 ---
 
 >  感谢 [柏荧(BY)](https://github.com/qiubaiying) 提供的教程，
