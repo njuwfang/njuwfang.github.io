@@ -18,5 +18,3 @@ tags:       -life
 emmm...现在终于行动了。
 
 ***
-
-图片引自Bing的每日壁纸 [上帝的视角 奥本上方的热气球，美国华盛顿州](http://bing.plmeizi.com/show/739)
