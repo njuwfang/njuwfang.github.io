@@ -4,7 +4,7 @@ title:      提出一个好的问题
 date:       2018-06-05
 author:     wfang
 header-img: img/IBM-Q-quantum-computer.jpg
-catalog:    false
+catalog:    ture
 tags:
     -study
 
