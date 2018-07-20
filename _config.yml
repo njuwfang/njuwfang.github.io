@@ -27,6 +27,9 @@ github_username:    njuwfang
 #twitter_username:   qiubaiying
 
 
+markdown: kramdown
+
+
 
 
 # Build settings
