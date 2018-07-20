@@ -37,6 +37,8 @@ The key idea of protecting a message against the effects of noise is to encode t
 * Surface Code
 * .....
 
+## Superconductor
+
 ## 一些无关的话
 
 自己还是挺高兴参加了清华物理系的这个暑期学校。可是自己毕竟不是学物理的，很多东西听不懂，然后上课很多时间都在玩手机（emmm...我真不知道讲的是啥啊）
