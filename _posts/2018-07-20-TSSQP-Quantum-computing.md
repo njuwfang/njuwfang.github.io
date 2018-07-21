@@ -42,16 +42,19 @@ The key idea of protecting a message against the effects of noise is to encode t
 ## Superconducting qubits & Trapped ion qubits
 
 * Harmonic oscillator is a universality class of systems
+  
   那我们能观测到一个弹簧振子的能级分布么？
   假设振动的频率$f=1\mathrm{Hz}$，那么$E/K_b = hf/K_b<10^{-10}\mathrm{K}$
 
   而室温是$300\mathrm{K}$, Quantum effects is overwhelmed by thermal environment.
 * Superconductiong circuits -- Josephson Junctions
+  
   通过很高的频率, 在"较高"温度上就能实现 Qubit
   Long conherence times, easily controlled by $\mu$wave technology...
 
 **物理的东西实在不会写**
-实际上听到了一大堆不明所以的名词。
+
+听到了一大堆不明所以的名词。
 
 ## Topological quantum computing & Majorana fermions
 
