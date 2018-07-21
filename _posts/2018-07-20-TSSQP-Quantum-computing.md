@@ -67,7 +67,9 @@ The key idea of protecting a message against the effects of noise is to encode t
   * Analog quantum simulation
   * Quantum-imformation-inspired algorithms for classical simulation of quantum systems -- (Hybrid)
 
-## Quantum Advantages in Hypercube Game
+***
+
+Quantum Advantages in Hypercube Game
 
 这堂课是我听的最开心的，因为完全没涉及到物理的东西。报告的是这篇文章[Quantum Advantages in Hypercube Game](https://arxiv.org/pdf/1806.02642.pdf),下面的内容都是来自这篇文章。
 
@@ -98,6 +100,8 @@ setting.
     (a) (Parity): the product of their own assignments equals to $1$ except that the product of the first player’s assignments  equals $-1$ if $q_1=1$.
     (b) (Consistency): the assignments are consistent on all the common vertices $X_i\cap X_j,\forall i\neq j$.
 
+***
+
 ## 一些无关的话
 
 自己还是挺高兴参加了清华物理系的这个暑期学校。可是自己毕竟不是学物理的，很多东西听不懂，然后上课很多时间都在玩手机（emmm...我真不知道讲的是啥啊）
@@ -108,7 +112,9 @@ setting.
 说实话这个星期是超级累，早上定6点40的闹钟，然后每天6点必定醒来... 脑袋痛
 还碰上北京暴雨，只好走路，20分钟到清华大门，再20分钟才到上课的教室（清华为什么这么大😭）第一天鞋子湿透穿了一整天，第二天穿了拖鞋...却没想到磨脚。
 
-还有一件事很开心，我因为塑料普通话认识了一个港科大的小姐姐（塑普好听!），更巧的是她老家是郴州。
+还有一件事很开心，我因为湖南口音认识了一个港科大的小姐姐，更巧的是她老家也是郴州。
+
+（哈哈，塑料普通话好听）
 
 ***
 封面图片
