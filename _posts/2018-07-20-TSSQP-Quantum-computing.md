@@ -99,7 +99,9 @@ setting.
   1. The referee randomly chooses one of the question $q=(q_1,\cdots,q_m)\in \\{0,1\\}^m$ according to a uniform distribution, and sends $q_i$ to the player $p_i$
   2. Each player $p_i$ needs to assign $1$ or $-1$ to $2^{m-1}$ vertices in the set $X_i:=\\{x\in\\{0,1\\}^m \vert x_i=q_i\\}$, and sends their assignments to the referee.
   3. The players win if and only if
+    
     (a) (Parity): the product of their own assignments equals to $1$ except that the product of the first player’s assignments  equals $-1$ if $q_1=1$.
+    
     (b) (Consistency): the assignments are consistent on all the common vertices $X_i\cap X_j,\forall i\neq j$.
 
 ***
