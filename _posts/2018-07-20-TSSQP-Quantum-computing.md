@@ -102,9 +102,9 @@ setting.
   2. Each player $p_i$ needs to assign $1$ or $-1$ to $2^{m-1}$ vertices in the set $X_i:=\\{x\in\\{0,1\\}^m \vert x_i=q_i\\}$, and sends their assignments to the referee.
   3. The players win if and only if
     
-  (a) (Parity): the product of their own assignments equals to $1$ except that the product of the first player’s assignments  equals $-1$ if $q_1=1$.
+     (a) (Parity): the product of their own assignments equals to $1$ except that the product of the first player’s assignments  equals $-1$ if $q_1=1$.
     
-  (b) (Consistency): the assignments are consistent on all the common vertices $X_i\cap X_j,\forall i\neq j$.
+     (b) (Consistency): the assignments are consistent on all the common vertices $X_i\cap X_j,\forall i\neq j$.
 
 ***
 
