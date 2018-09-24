@@ -96,4 +96,9 @@ service-worker: true
 
 
 # Friends
-# friends: [ ]
+friends: [ 
+  {
+    title: "Songyan Hou",
+    href: "https://justinhou95.github.io/"
+  }
+]
