@@ -109,13 +109,13 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 ![draw lines](/img/drawlines.png)
 上面的这些线条在Ti*k*Z中都称为path，例如：
 
-`\tikz \draw (0, 0) -- (1, 1) -- (1, 0);` 用 `--` 来连接各个点，组成折线段。
+- `\tikz \draw (0, 0) -- (1, 1) -- (1, 0);` 用 `--` 来连接各个点，组成折线段。
 ![broken line](/img/broken_line.png)
 
-`\tikz \draw (-1, 0) .. controls (-0.8, 0.8) and (0.8, 0.8) .. (1, 0);` 用 `.. controls <first control point> and <second control point> ..` 来连接，其中第二个控制点的坐标可以省略，这样只用第一个点作控制。
+- `\tikz \draw (-1, 0) .. controls (-0.8, 0.8) and (0.8, 0.8) .. (1, 0);` 用 `.. controls <first control point> and <second control point> ..` 来连接，其中第二个控制点的坐标可以省略，这样只用第一个点作控制。
 ![curved line](/img/curved_line.png)
 
-`\tikz \draw (0, 0) circle (2);` 以(0,0)为圆心，2为半径画圆。
+- `\tikz \draw (0, 0) circle (2);` 以(0,0)为圆心，2为半径画圆。
 ![circle](/img/circle.png)
 
 我们看 `\draw` 后面的部分，它是对我们想画的东西的一个描述。实际上他们每个都是一个完整的描述， `\draw` 正是把他们画出来了，于是我们可以只使用一个 `\draw` 命令。
