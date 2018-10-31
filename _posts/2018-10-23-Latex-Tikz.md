@@ -44,15 +44,18 @@ PGF是"portable graphics format"的缩写（或者你也可以认为是"pretty, 
 \begin{document}
 
 %第一种使用方式
-\begin{tikzpicture}[\<options\>]
-    \<tikz commands\>
+\begin{tikzpicture}[<options>]
+    <tikz commands>
 \end{tikzpicture}
 
 %第二种使用方式
-\tikz[\<options\>]{\<tikz commands\>}
+\tikz[<options>]{<tikz commands>}
 
 \end{document}
 ```
+
+例如 `\tikz \fill[blue] (1ex,1ex) circle (1ex);` ![blue circle](/img/bluecircle.png)
+
 
 
 
