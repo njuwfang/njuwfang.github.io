@@ -32,20 +32,25 @@ PGF是"portable graphics format"的缩写（或者你也可以认为是"pretty, 
 首先~~当然是安装Texlive完整版（大雾）~~，如果自己去下载配置包，比价烦，完整版一步到位很好了。
 
 在LaTeX中使用TikZ，首先在导言区需要载入TikZ包：
-```
+```latex
 \usepackage{tikz}
 ```
 接着，我们就能够使用TikZ命令来画图了，一般的框架如下
-```
+```latex
 \documentclass{standalone}
+
 \usepackage{tikz}
+
 \begin{document}
+
 %第一种使用方式
 \begin{tikzpicture}[\<options\>]
     \<tikz commands\>
 \end{tikzpicture}
+
 %第二种使用方式
 \tikz[\<options\>]{\<tikz commands\>}
+
 \end{document}
 ```
 
