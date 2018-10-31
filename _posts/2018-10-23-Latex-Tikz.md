@@ -54,8 +54,21 @@ PGF是"portable graphics format"的缩写（或者你也可以认为是"pretty, 
 \end{document}
 ```
 
-例如 `\tikz \fill[blue] (1ex,1ex) circle (1ex);` ![blue circle](/img/bluecircle.png)
+例如
 
+```latex
+\tikz \fill[blue] (1ex, 1ex) circle (1ex);
+```
+![blue circle](/img/bluecircle.png)
+
+```latex
+\begin{tikzpicture}
+\draw[thick, rounded corners = 8pt] 
+    (0, 0) -- (0, 2) -- (1, 3.25) -- (2, 2) -- (2, 0) --
+    (0, 2) -- (2, 2) -- (0, 0) -- (2, 0);
+\end{tikzpicture}
+```
+![rounded path](/img/roundedpath.png)
 
 
 
