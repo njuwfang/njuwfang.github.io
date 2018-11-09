@@ -166,23 +166,22 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 \end{tikzpicture}
 ```
 
-### 添加修饰
-
 现在我们可以尝试加上一些修饰。
 
 - 颜色
 
-```latex
-\tikz \path 
-    (0, 0) node [shape=circle, draw=blue!50, fill=blue!20] {}
-    (1, 0) node [shape=rectangle, draw=red!50, fill=red!20] {};
-```
-![node2](/img/node2.jpg)
-`blue!50`表示颜色，后面的`!50`表示该颜色的饱和度，`draw`表示画出来的边缘，`fill`表示里面的填充。里面有许多内置的颜色，比如：red、blue、yellow、green等，也可以自己根据rgb写
-```
-\definecolor{orange}{rgb}{1,0.5,0}
-```
-有些时候，可能很多节点都是要画成一个样子，那么我们能够事先定义样式
+    ```latex
+    \tikz \path 
+        (0, 0) node [shape=circle, draw=blue!50, fill=blue!20] {}
+        (1, 0) node [shape=rectangle, draw=red!50, fill=red!20] {};
+    ```
+    ![node2](/img/node2.jpg)
+        `blue!50`表示颜色，后面的`!50`表示该颜色的饱和度，`draw`表示画出来的边缘，`fill`表示里面的填充。许多内置的颜色，比如：red、blue、yellow、green等，也可以自己根据rgb写
+    ```
+    \definecolor{orange}{rgb}{1,0.5,0}
+    ```
+
+有些时候，可能很多节点都是要画成一个样子，那么我们可以事先**定义样式**
 
 ```latex
 \begin{tikzpicture}
@@ -197,19 +196,69 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 ```
 ![node3](/img/node3.jpg)
 
+- 大小， 可以使用 `inner sep=2mm`、`minimum size=4mm`这样的属性来调整节点的大小，后面的`mm`是单位，可以是`mm`、`cm`、`pt`. 这里要注意`minimum size`声明了一个最小的值，如果节点内文字过多，它会自行调整到更大的大小。
 
+- 命名节点
 
+    有两种方法，一种是在`[..]`加入`name=`这一个选项来声明，另一种是直接在`node`后面用括号：
 
-```latex
-\begin{tikzpicture}[ultra thick]
-\draw (0,0) -- (0,1);
-\begin{scope}[thin]
-\draw (1,0) -- (1,1);
-\draw (2,0) -- (2,1);
-\end{scope}
-\draw (3,0) -- (3,1);
-\end{tikzpicture}
-```
+    ```latex
+    % ... 使用了上面的样式
+    \begin{tikzpicture}
+        \node (waiting 1) at ( 0,2) [place] {};
+        \node (critical 1) at ( 0,1) [place] {};
+        \node (semaphore) at ( 0,0) [place] {};
+        \node (leave critical) at ( 1,1) [transition] {};
+        \node (enter critical) at (-1,1) [transition] {};
+    \end{tikzpicture}
+    ```
+    另外，我们也能写成如下形式：
+
+    ```latex
+    \begin{tikzpicture}
+        \node[place] (waiting 1) at ( 0,2) {};
+        \node[place] (critical 1) at ( 0,1) {};
+        \node[place] (semaphore) at ( 0,0) {};
+        \node[transition] (leave critical) at ( 1,1) {};
+        \node[transition] (enter critical) at (-1,1) {};
+    \end{tikzpicture}
+    ```
+    有了节点的名字，我们就能在后续的命令中使用到该节点，之前的一副图我们现在可以这么画了：
+
+    ```latex
+    % 在导言区加入 \usetikzlibrary{positioning}
+    \begin{tikzpicture}
+        [place/.style={circle,draw=blue!50,fill=blue!20,thick,inner sep=0pt,minimum size=6mm},
+        transition/.style={rectangle,draw=black!50,fill=black!20,thick,inner sep=0pt,minimum size=4mm}]
+        \node[place] (waiting) {};
+        \node[place] (critical) [below=of waiting] {};
+        \node[place] (semaphore) [below=of critical] {};
+        \node[transition] (leave critical) [right=of critical] {};
+        \node[transition] (enter critical) [left=of critical] {};
+    \end{tikzpicture}
+    ```
+    ![node4](/img/node4.jpg)
+    
+- 标记
+
+    1. 第一种方法是，直接画一个只有文字的节点
+    2. 第二种方法是，在`[...]`里用`label=`选项
+
+    ```
+    \begin{tikzpicture}
+        \node[place] (waiting) {};
+        \node[place] (critical) [below=of waiting] {};
+        \node[place] (semaphore) [below=of critical] {};
+        \node[transition] (leave critical) [right=of critical] {};
+        
+        %第一种
+        \node [red,above] at (semaphore.north) {$s\le 3$};
+
+        %第二种
+        \node[transition] (enter critical) [left=of critical, label=above:$s\le 3$] {};
+    \end{tikzpicture}
+    ```
+    ![node5](/img/node5.jpg)
 
 
 
