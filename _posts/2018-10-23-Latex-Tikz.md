@@ -13,7 +13,7 @@ tags:
 
 ## 前言
 
---- 
+---
 
 ### 关于PGF/Ti*k*Z 
 
@@ -82,9 +82,9 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 接下来我们便可以开始用Ti*k*Z画图了。
 
-## 若干个例子
+## 从若干个例子出发
 
-### 画线条
+### 线条
 
 ```latex
 \begin{tikzpicture}
@@ -118,7 +118,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 - `\tikz \draw (0, 0) circle (2);` 以(0,0)为圆心，2为半径画圆。
 ![circle](/img/circle.png)
 
-我们看 `\draw` 后面的部分，它是对我们想画的东西的一个描述。实际上他们每个都是一个完整的描述， `\draw` 正是把他们画出来了，于是我们可以只使用一个 `\draw` 命令。
+我们看 `\draw` 后面的部分，它是对我们想画的东西的一个描述。实际上他们每个都是一个完整的描述， **正是 `\draw` 把他们画出来了**，于是我们可以只使用一个 `\draw` 命令。
 
 ```latex
 \tikz \draw
@@ -128,6 +128,88 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
     (-2, 0) .. controls (-1.5, 2) and (1.5, -2) .. (2, 0);
 ```
 ![multi_line](/img/multi_line.png)
+
+还有许多预设的path, 如：`grid`, `rectangle`, `ellipse`. 当然，相应的参数设置不一样。
+
+### 节点
+
+实际上，我们通过上面线条的命令已经能够画出很多图了（如果你不嫌辛苦的话）。现在介绍Ti*k*Z提供的一个机制：node，在一个点上画出某些形状，使得我们能够更加方便地对一个整体地对象进行修改，并且能够在后面继续使用。
+
+```latex
+\begin{tikzpicture}
+\node at ( 0,2) [shape=circle,draw] {1};
+\node at ( 0,1) [shape=circle,draw] {2};
+\node at ( 0,0) [shape=circle,draw] {3};
+\node at ( 1,1) [shape=rectangle,draw] {4};
+\node at (-1,1) [shape=rectangle,draw] {5};
+\end{tikzpicture}
+```
+![node1](/img/node1.jpg)
+
+`node`命令声明了一个节点，这里要注意的是最后的`{1}` `{2}`才是node的本体（即每个node后面必须要有`{<some words>}`），`[...]`中的内容则是描述了这个节点的属性，例如一个圈（circle），并画（draw）出来。
+
+上面的代码也可以改写成以下的形式：
+
+```latex
+\begin{tikzpicture}
+\path ( 0,2) node [shape=circle,draw] {1}
+      ( 0,1) node [shape=circle,draw] {2}
+      ( 0,0) node [shape=circle,draw] {3}
+      ( 1,1) node [shape=rectangle,draw] {4}
+      (-1,1) node [shape=rectangle,draw] {5};
+
+\draw node at ( 0,2) [shape=circle,draw] {1}
+      node at ( 0,1) [shape=circle,draw] {2}
+      node at ( 0,0) [shape=circle,draw] {3}
+      node at ( 1,1) [shape=rectangle,draw] {4}
+      node at (-1,1) [shape=rectangle,draw] {5};
+\end{tikzpicture}
+```
+
+### 添加修饰
+
+现在我们可以尝试加上一些修饰。
+
+- 颜色
+
+```latex
+\tikz \path 
+    (0, 0) node [shape=circle, draw=blue!50, fill=blue!20] {}
+    (1, 0) node [shape=rectangle, draw=red!50, fill=red!20] {};
+```
+![node2](/img/node2.jpg)
+`blue!50`表示颜色，后面的`!50`表示该颜色的饱和度，`draw`表示画出来的边缘，`fill`表示里面的填充。里面有许多内置的颜色，比如：red、blue、yellow、green等，也可以自己根据rgb写
+```
+\definecolor{orange}{rgb}{1,0.5,0}
+```
+有些时候，可能很多节点都是要画成一个样子，那么我们能够事先定义样式
+
+```latex
+\begin{tikzpicture}
+    [place/.style={circle,draw=blue!50,fill=blue!20,thick},
+    transition/.style={rectangle,draw=black!50,fill=black!20,thick}]
+    \node at ( 0,2) [place] {};
+    \node at ( 0,1) [place] {};
+    \node at ( 0,0) [place] {};
+    \node at ( 1,1) [transition] {};
+    \node at (-1,1) [transition] {};
+\end{tikzpicture}
+```
+![node3](/img/node3.jpg)
+
+
+
+
+```latex
+\begin{tikzpicture}[ultra thick]
+\draw (0,0) -- (0,1);
+\begin{scope}[thin]
+\draw (1,0) -- (1,1);
+\draw (2,0) -- (2,1);
+\end{scope}
+\draw (3,0) -- (3,1);
+\end{tikzpicture}
+```
 
 
 
