@@ -133,15 +133,15 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 ### 节点
 
-实际上，我们通过上面线条的命令已经能够画出很多图了（如果你不嫌辛苦的话）。现在介绍Ti*k*Z提供的一个机制：node，在一个点上画出某些形状，使得我们能够更加方便地对一个整体地对象进行修改，并且能够在后面继续使用。
+实际上，我们通过上面线条的命令已经能够画出很多图了（如果你不嫌辛苦的话）。Ti*k*Z提供的一个了机制：node，在一个点上画出某些形状，使得我们能够更加方便地对一个整体地对象进行修改，并且能够在后面继续使用。
 
 ```latex
 \begin{tikzpicture}
-\node at ( 0,2) [shape=circle,draw] {1};
-\node at ( 0,1) [shape=circle,draw] {2};
-\node at ( 0,0) [shape=circle,draw] {3};
-\node at ( 1,1) [shape=rectangle,draw] {4};
-\node at (-1,1) [shape=rectangle,draw] {5};
+    \node at ( 0,2) [shape=circle,draw] {1};
+    \node at ( 0,1) [shape=circle,draw] {2};
+    \node at ( 0,0) [shape=circle,draw] {3};
+    \node at ( 1,1) [shape=rectangle,draw] {4};
+    \node at (-1,1) [shape=rectangle,draw] {5};
 \end{tikzpicture}
 ```
 ![node1](/img/node1.jpg)
@@ -203,39 +203,39 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
     有两种方法，一种是在`[..]`加入`name=`这一个选项来声明，另一种是直接在`node`后面用括号：
 
     ```latex
-    % ... 使用了上面的样式
-    \begin{tikzpicture}
-        \node (waiting 1) at ( 0,2) [place] {};
-        \node (critical 1) at ( 0,1) [place] {};
-        \node (semaphore) at ( 0,0) [place] {};
-        \node (leave critical) at ( 1,1) [transition] {};
-        \node (enter critical) at (-1,1) [transition] {};
-    \end{tikzpicture}
+% ... 使用了上面的样式
+\begin{tikzpicture}
+    \node (waiting 1) at ( 0,2) [place] {};
+    \node (critical 1) at ( 0,1) [place] {};
+    \node (semaphore) at ( 0,0) [place] {};
+    \node (leave critical) at ( 1,1) [transition] {};
+    \node (enter critical) at (-1,1) [transition] {};
+\end{tikzpicture}
     ```
     另外，我们也能写成如下形式：
 
     ```latex
-    \begin{tikzpicture}
-        \node[place] (waiting 1) at ( 0,2) {};
-        \node[place] (critical 1) at ( 0,1) {};
-        \node[place] (semaphore) at ( 0,0) {};
-        \node[transition] (leave critical) at ( 1,1) {};
-        \node[transition] (enter critical) at (-1,1) {};
-    \end{tikzpicture}
+\begin{tikzpicture}
+    \node[place] (waiting 1) at ( 0,2) {};
+    \node[place] (critical 1) at ( 0,1) {};
+    \node[place] (semaphore) at ( 0,0) {};
+    \node[transition] (leave critical) at ( 1,1) {};
+    \node[transition] (enter critical) at (-1,1) {};
+\end{tikzpicture}
     ```
     有了节点的名字，我们就能在后续的命令中使用到该节点，之前的一副图我们现在可以这么画了：
 
     ```latex
-    % 在导言区加入 \usetikzlibrary{positioning}
-    \begin{tikzpicture}
-        [place/.style={circle,draw=blue!50,fill=blue!20,thick,inner sep=0pt,minimum size=6mm},
-        transition/.style={rectangle,draw=black!50,fill=black!20,thick,inner sep=0pt,minimum size=4mm}]
-        \node[place] (waiting) {};
-        \node[place] (critical) [below=of waiting] {};
-        \node[place] (semaphore) [below=of critical] {};
-        \node[transition] (leave critical) [right=of critical] {};
-        \node[transition] (enter critical) [left=of critical] {};
-    \end{tikzpicture}
+% 在导言区加入 \usetikzlibrary{positioning}
+\begin{tikzpicture}
+    [place/.style={circle,draw=blue!50,fill=blue!20,thick,inner sep=0pt,minimum size=6mm},
+    transition/.style={rectangle,draw=black!50,fill=black!20,thick,inner sep=0pt,minimum size=4mm}]
+    \node[place] (waiting) {};
+    \node[place] (critical) [below=of waiting] {};
+    \node[place] (semaphore) [below=of critical] {};
+    \node[transition] (leave critical) [right=of critical] {};
+    \node[transition] (enter critical) [left=of critical] {};
+\end{tikzpicture}
     ```
     ![node4](/img/node4.jpg)
     
@@ -245,18 +245,17 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
     2. 第二种方法是，在`[...]`里用`label=`选项
 
     ```
-    \begin{tikzpicture}
-        \node[place] (waiting) {};
-        \node[place] (critical) [below=of waiting] {};
-        \node[place] (semaphore) [below=of critical] {};
-        \node[transition] (leave critical) [right=of critical] {};
-        
-        %第一种
-        \node [red,above] at (semaphore.north) {$s\le 3$};
+\begin{tikzpicture}
+    \node[place] (waiting) {};
+    \node[place] (critical) [below=of waiting] {};
+    \node[place] (semaphore) [below=of critical] {};
+    \node[transition] (leave critical) [right=of critical] {
+    %第一种
+    \node [red,above] at (semaphore.north) {$s\le 3$};
 
-        %第二种
-        \node[transition] (enter critical) [left=of critical, label=above:$s\le 3$] {};
-    \end{tikzpicture}
+    %第二种
+    \node[transition] (enter critical) [left=of critical, label=above:$s\le 3$] {};
+\end{tikzpicture}
     ```
     ![node5](/img/node5.jpg)
 
