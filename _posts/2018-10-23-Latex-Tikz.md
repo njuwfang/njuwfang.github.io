@@ -166,6 +166,8 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 \end{tikzpicture}
 ```
 
+## 修饰
+
 现在我们可以尝试加上一些修饰。
 
 - 颜色
@@ -177,7 +179,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
     ```
     ![node2](/img/node2.jpg)
         `blue!50`表示颜色，后面的`!50`表示该颜色的饱和度，`draw`表示画出来的边缘，`fill`表示里面的填充。许多内置的颜色，比如：red、blue、yellow、green等，也可以自己根据rgb写
-    ```
+    ```latex
     \definecolor{orange}{rgb}{1,0.5,0}
     ```
 
@@ -244,7 +246,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
     1. 第一种方法是，直接画一个只有文字的节点
     2. 第二种方法是，在`[...]`里用`label=`选项
 
-    ```
+    ```latex
 \begin{tikzpicture}
     \node[place] (waiting) {};
     \node[place] (critical) [below=of waiting] {};
@@ -259,6 +261,24 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
     ```
     ![node5](/img/node5.jpg)
 
+- 连接节点
+
+    ```latex
+%导言区加入\usetikzlibrary{positioning}
+%样式如上
+\begin{tikzpicture}
+    \node[place] (waiting) {};
+    \node[place] (critical) [below=of waiting] {};
+    \node[place] (semaphore) [below=of critical] {};
+    \node[transition] (leave critical) [right=of critical] {};
+    \node[transition] (enter critical) [left=of critical] {};
+    \draw [->] (enter critical) to (critical);
+    \draw [->] (waiting) to [bend right=45] (enter critical);
+    \draw [->] (enter critical) to [bend right=45] (semaphore);
+\end{tikzpicture}
+    ```
+    ![node6](/img/node6.jpg)
+    这里用到了之前的path，我们可以看到，每个节点的名字我们可以当作坐标来使用。
 
 
 
