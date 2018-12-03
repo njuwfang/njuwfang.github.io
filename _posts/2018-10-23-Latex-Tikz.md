@@ -118,7 +118,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 - `\tikz \draw (0, 0) circle (2);` 以(0,0)为圆心，2为半径画圆。
 ![circle](/img/circle.png)
 
-我们看 `\draw` 后面的部分，它是对我们想画的东西的一个描述。实际上他们每个都是一个完整的描述， **正是 `\draw` 把他们画出来了**，于是我们可以只使用一个 `\draw` 命令。
+我们看 `\draw` 后面的部分，它是对我们想画的东西的一个描述。每个都作为一个完整的描述，我们可以只使用一个 `\draw` 命令。
 
 ```latex
 \tikz \draw
@@ -131,10 +131,72 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 还有许多预设的path, 如：`grid`, `rectangle`, `ellipse`. 当然，相应的参数设置不一样。
 
+其实，有了上面的线条命令，我们已经可以画出任意图形了（此处狗头）。不过那样画复杂的图形太麻烦了，而且复用性也差。接下来的例子里则包括了很多我们理科生会经常碰到的图形。
+
 ### 节点
 
+一个简单的节点(node)
 
+```latex
+\tikz \draw (0, 0) node[circle, draw] {};
+```
 
+![circle1](/img/circle1.jpg)
+上面描述的是，在$(0,0)$这个位置上画了一个圆。有一点要注意，node的主体是后面的 `{}` ，里面可以填上文字，也就是在一个位置上放上一些符号，然后在周围画一些预定义的形状，因此我们看到，虽然前面已经有了`\draw`命令，但是在`[]`里还需要加上`draw`这个选项，这个选项是表明circle这个形状要画出来。
+
+我们也可以直接用`\node`
+
+```latex
+\begin{tikzpicture}
+    \node at (0, 0) [circle, draw=blue!50, fill=blue!20, text=blue!70] {1};
+    \node at (1, 0) [rectangle, draw=red!50, fill=red!20, text=red!70] {2};
+\end{tikzpicture}
+```
+
+![node1](/img/node1.jpg)
+
+往往我们会需要画很多类似的节点，那么可以预定义一些属性（定义一些宏）
+
+```latex
+\begin{tikzpicture} [
+    place/.style={circle, draw=blue!50, fill=blue!20, thick, minimum size=6mm},
+    transition/.style={rectangle, draw=black!75, fill=black!20, thick, minimum size=6mm},
+    red place/.style={place, draw=red!50, fill=red!20}
+]
+    \node[place] at (0,0) {};
+    \node at (1,0) [transition] {};
+    \node[red place] at (2,0) {};
+\end{tikzpicture}
+```
+
+![node2](/img/node2.jpg)
+
+就是把原来写在`[<option>]`里的东西，写成宏，然后写法也比较随意，不过最好自己统一成一个样子。那些选项，我们光看英文就能大致理解是什么意思。
+
+一般来说，你想画成什么样子的，可以用相应的单词在文档里搜索一下，很容易就能找到。
+
+#### 节点之间的操作
+
+就像一般的编程语言一样，我们可以先给这些节点命名，并在此之上进行一些更丰富的操作。
+
+```latex
+%在导言区加上\usetikzlibrary{positioning}
+\begin{tikzpicture}
+    \node (home) [rectangle, draw=blue!50, fill=blue!20] {};
+    \node (school) [circle, right=of home, draw=red!50, fill=red!20] {};
+    \draw[->, bend right] (home) edge (school);
+    \draw[<-] (home) -- (school);
+\end{tikzpicture}
+```
+
+![node3](/img/node3.jpg)
+
+这里`edge`比之前的路径有更丰富的选项，同样我们也能把后面两个连接的箭头放在节点的描述里面。上面的图也能按如下画出：
+
+```latex
+\begin{tikzpicture}
+    \node (home)
+```
 
 ## 后话
 
@@ -144,7 +206,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 从此竟然喜欢用Ti*k*Z画图了。
 
-但是很多命令不太记得，每次要作图的时候都会上网搜一下，或者查查文档，效率很低。于是想自己总结一下，把基本的东西弄好，以及平常自己觉得比较方便的写法整理上来，方便自己以后来用（很多当时写出来的东西都记不得了）
+但是很多命令不太记得，每次要作图的时候都会上网搜一下，或者查查文档，效率很低。于是想自己总结一下，把基本的东西写好，以及平常自己觉得比较方便的写法整理上来，方便自己以后来用（很多当时写出来的东西都记不得了）
 
 
 ## 参考资料
