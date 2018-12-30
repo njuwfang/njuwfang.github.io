@@ -82,7 +82,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 接下来我们便可以开始用Ti*k*Z画图了。
 
-## 从若干个例子出发
+## 由例子出发
 
 ### 线条
 
@@ -133,7 +133,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 其实，有了上面的线条命令，我们已经可以画出任意图形了（此处狗头）。不过那样画复杂的图形太麻烦了，而且复用性也差。接下来的例子里则包括了很多我们理科生会经常碰到的图形。
 
-### 节点
+### 树和节点
 
 一个简单的节点(node)
 
@@ -283,7 +283,51 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 ![nodecomplex](/img/nodecomplex.jpg)
 
+#### 树
 
+节点可以定义它的子节点，这样我们便能很方便的画树。
+
+```latex
+%在导言区导入\usetikzlibrary{positioning,shapes}
+\begin{tikzpicture}[every node/.style={draw, thick, circle, minimum size=.5cm, inner sep=0pt},
+    every child/.style={very thick},sibling distance=1cm]
+    \node[label={[blue]above:{\LARGE$B_5$}}] (0) {0}
+        child[missing] foreach \x in {1,2,3,4}
+        child {node {8}}
+        child {node {9}
+            child {node {10}}
+            }
+        child {node {7}
+            child[missing]
+            child {node {11}}
+            child {node {12}
+                child {node {14}}
+                }
+            }
+        child[sibling distance=1.4cm] {node {5}
+            child[missing]
+            child[missing]
+            child {node {11}}
+            child {node {12}
+                child {node {14}}}
+            child {node {13}
+                child[missing]
+                child {node {15}}
+                child {node {16}
+                    child {node {17}}
+                    }
+                }
+            }
+        child[sibling distance=2.2cm] {coordinate (6)
+            node[regular polygon, regular polygon sides=3,
+                minimum size=1.8cm, inner sep=0pt, below=-2mm of 6,
+                fill=green!20, label={[blue]center:\LARGE$B_4$}] {}
+            node[fill=white] {6}
+            };
+\end{tikzpicture}
+```
+
+![tree](/img/tree.jpg)
 
 ## 后话
 
