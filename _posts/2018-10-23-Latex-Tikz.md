@@ -329,13 +329,88 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 ![tree](/img/tree.jpg)
 
+> 这个图是算法课上卜老师讲二项式堆所用的一个图。
+
+里面最主要用到的就是`child`命令，和之前在一个节点后面加`node`,`edge`有着相同的用法。
+
+```latex
+\tikz \node {root}
+    child {node {left}}
+    child {node {right}
+        child {node {child}}
+        child {node {child}}
+    };
+```
+
+![tree1](/img/tree1.jpg)
+
+里面涉及到的各项参数，读者可以自己翻一下词典😂，我不太想写了。还有一点`\foreach`循环的用法，接下来马上说！
+
+### 循环命令
+
+这个命令真的超级好用了，想想自己以前很多时候一个东西敲了十多遍（真是太蠢了😵）
+
+```latex
+\begin{tikzpicture}
+    \foreach \x in {0,1,...,10} {
+        \node[draw, circle, inner sep=0pt, minimum size=\x mm] {};
+    }
+\end{tikzpicture}
+```
+
+![foreach1](/img/foreach1.jpg)
+
+`{0,1,...,10}`大括号里的参数可以是任意的用逗号隔开的字符，一般而言不能打省略号。但对于数字而言，可以使用省略号，Ti*k*Z会计算前两个数字的差，然后依次迭代下去。
+
+我们也可以在一个`\foreach`下使用多个迭代变量，这里用`/`隔开
+
+```latex
+\begin{tikzpicture}
+    \foreach \a/\x/\y in {1/red/RED, 2/blue/BLUE, 3/orange/ORANGE, 4/teal/TEAL, 5/magenta/MAGENTA} {
+        \node[circle, minimum size=2*\a mm, draw=\x!90, fill=\x!30, text=\x!70] at (2*\a, 0) {\y};
+    }
+\end{tikzpicture}
+```
+
+![foreach2](/img/foreach2.jpg)
+
+#### 更新变量
+
+命名是可以更新的。
+
+```latex
+\begin{tikzpicture}
+    [opacity = 0.5]
+
+    \path[draw,coordinate] (0,0) coordinate (A)
+        ++(90:5cm) coordinate (B)
+        ++(0:5cm) coordinate (C)
+        ++(-90:5cm) coordinate (D);
+    \foreach \x in {1,...,40} {
+        \fill [red!50] (A) -- (B) -- (C) -- (D) -- cycle;
+        \coordinate (X) at (A);
+        \path[draw,coordinate]
+            (A) -- (B) coordinate[pos=.10] (A)
+                -- (C) coordinate[pos=.10] (B)
+                -- (D) coordinate[pos=.10] (C)
+                -- (X) coordinate[pos=.10] (D);
+    }
+\end{tikzpicture}
+```
+
+这个就是标题的图
+
+![foreach](/img/foreach3.jpg)
+
+
+
 ## 后话
 
 写这篇是因为刚接触使用$\LaTeX$画图的时候，想画寄存器图，然而苦于不知道可视化的工具，选择了用Ti*k*Z来画。
 
 当时不太会写，自己手动把每个节点的坐标写好，然后一个一个的打上去，费时费力，然后效果也一般。
 
-从此竟然喜欢用Ti*k*Z画图了。
+之后就入了这个坑，什么都用它画 😓
 
 但是很多命令不太记得，每次要作图的时候都会上网搜一下，或者查查文档，效率很低。于是想自己总结一下，把基本的东西写好，以及平常自己觉得比较方便的写法整理上来，方便自己以后来用（很多当时写出来的东西都记不得了）
 
