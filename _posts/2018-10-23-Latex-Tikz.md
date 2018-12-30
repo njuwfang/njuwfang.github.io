@@ -17,13 +17,9 @@ tags:
 
 ### 关于PGF/Ti*k*Z
 
-> 这一段话可以不看
+PGF是"portable graphics format"的缩写（或者你也可以认为是"pretty, good, functional", 哈哈, 这是来自文档的冷幽默？），它提供了一些画（矢量）图的基本命令集。
 
-PGF是"portable graphics format"的缩写（或者你也可以认为是"pretty, good, functional", 哈哈, 这是来自文档的冷幽默？），它提供了一些画（矢量）图的基本命令集。PGF包含三个层面：system layer $\to$ basic layer $\to$ frontend layer. 一般来说，我们不需要关注前两个层面。
-
-就第三个层面Frontend Layer（前端）而言，Ti*k*Z就是一种很自然的封装。它让我们能够使用到PGF的所有特性，同时简化了我们的操作，更加容易地使用PGF.
-
-"Ti*k*Z ist kein Zeichenprogramm" (German for "TikZ is not a drawing program").
+> "Ti*k*Z ist kein Zeichenprogramm" (German for "TikZ is not a drawing program").
 
 ---
 
