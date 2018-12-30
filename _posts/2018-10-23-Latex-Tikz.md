@@ -15,7 +15,7 @@ tags:
 
 ---
 
-### 关于PGF/Ti*k*Z 
+### 关于PGF/Ti*k*Z
 
 > 这一段话可以不看
 
@@ -31,7 +31,7 @@ PGF是"portable graphics format"的缩写（或者你也可以认为是"pretty, 
 
 首先~~当然是安装Texlive完整版（大雾）~~，如果自己去下载配置包，比价烦，完整版一步到位很好了。
 
-在LaTeX中使用Ti*k*Z，首先在导言区需要载入TikZ包：
+在LaTeX中使用Ti*k*Z，首先在导言区需要载入Ti*k*Z包：
 
 ```latex
 \usepackage{tikz}
@@ -89,15 +89,15 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 ```latex
 \begin{tikzpicture}
 %画一条线段连结(-2,0), (2,0)
-\draw (-1, 0) -- (1, 0); 
+\draw (-1, 0) -- (1, 0);
 %画一条线段连结(0,-2), (0,2)
-\draw (0, -1) -- (0, 1); 
+\draw (0, -1) -- (0, 1);
 %画线段依次连结下面的点
-\draw (2, 0) -- (4, 0) -- (3, -1) -- (3, 1); 
+\draw (2, 0) -- (4, 0) -- (3, -1) -- (3, 1);
 %以(5,0)为圆心，0.5为半径画一个圆
 \draw (5, 0) circle (0.5);
 
-\draw [fill = gray] 
+\draw [fill = gray]
     (6, 0) circle (2pt)
     (7, 1) circle (2pt)
     (8, 1) circle (2pt)
@@ -142,7 +142,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 ```
 
 ![circle1](/img/circle1.jpg)
-上面描述的是，在$(0,0)$这个位置上画了一个圆。有一点要注意，node的主体是后面的 `{}` ，里面可以填上文字，也就是在一个位置上放上一些符号，然后在周围画一些预定义的形状，因此我们看到，虽然前面已经有了`\draw`命令，但是在`[]`里还需要加上`draw`这个选项，这个选项是表明circle这个形状要画出来。
+上面描述的是，在$(0,0)$这个位置上画了一个圆。有一点要注意，node后面一定要有 `{}` ，里面可以填上文字，也就是在一个位置上放上一些符号，然后在周围画一些预定义的形状。另外，虽然前面已经有了`\draw`命令，但是在`[]`里还需要加上`draw`这个选项，这个选项是表明circle这个形状要画出来。
 
 我们也可以直接用`\node`
 
@@ -175,9 +175,36 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 一般来说，你想画成什么样子的，可以用相应的单词在文档里搜索一下。
 
-#### 节点之间的操作
+#### 命名节点
 
-就像一般的编程语言一样，我们可以先给这些节点命名，并在此之上进行一些更丰富的操作。
+就像一般的编程语言一样，我们可以先给这些节点命名，然后能在后面引用。
+
+```latex
+\begin{tikzpicture}
+    \node (home) at (0, 0) [circle] {};%home就是这个节点的名字
+\end{tikzpicture}
+```
+
+#### 节点上加标签
+
+本身我们可以在`{}`中加入我们想要放置的标签，以此来标注节点。另外，也可以在属性里面用一些参数来标识更多的信息。
+
+```latex
+\begin{tikzpicture}
+    \node (home) at (0,0) [draw=red!60, fill=red!20, circle,
+        text=red!70,
+        label={[blue!60]above:blue},
+        label={[teal]135:teal},
+        label={[name=label node, olive]-90:olive}] {red};
+    \draw[teal] (label node) .. controls +(1,-1) .. +(1,1);
+\end{tikzpicture}
+```
+
+![node4](/img/node4.jpg)
+
+主要是`label`这个选项的用法，上面我们还给一个label命名了，并用它画了一条线。注意到这里的`+(1,-1)`表示最开始`(label node)`这个位置的偏移。
+
+#### 节点之间的操作
 
 ```latex
 %在导言区加上\usetikzlibrary{positioning}
@@ -202,6 +229,60 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 \end{tikzpictrue}
 ```
 
+#### 复杂的例子
+
+有了上面说的用法，我们就能画一些复杂的节点图了。
+
+> 这个图例改自参考资料\[1\]
+
+```latex
+%在导言区加上\usetikzlibrary{positioning,arrows}
+\begin{tikzpicture} [
+    node distance = 1.3cm, on grid, > = stealth, bend angle = 45, auto,
+    place/.style = {circle, draw = blue!50, fill = blue!20, thick, minimum size = 6mm},
+    transition/.style = {rectangle, draw = black!75, fill = black!20, thick, minimum size = 5mm},
+    red place/.style = {place, draw = red!75, fill = red!20},
+    dot/.style = {circle, inner sep = 1.5pt, fill = black},
+    pre/.style = {<-, shorten < = 1pt, semithick},
+    post/.style = {->, shorten < = 1pt, semithick}
+]
+    \node (w1) [place] {}
+        node at (w1) [dot] {};
+    \node (c1) [place, right = of w1] {};
+    \node (s1) [red place, right = of c1, yshift = -5mm] {};
+    \node (s2) [red place, right = of c1, yshift = 5mm] {}
+        node at (s2) [dot, xshift = 1.3mm] {}
+        node at (s2) [dot, yshift = -1.13mm, xshift = -.65mm] {}
+        node at (s2) [dot, yshift = 1.13mm, xshift = -.65mm] {};
+    \node (c2) [place, right = of s1, yshift = 5mm] {};
+    \node (w2) [place, right = of c2] {}
+        node at (w2) [dot] {};
+
+    \node (e1) [transition, below = of c1] {}
+        edge [pre, bend left] (w1)
+        edge [post] (c1)
+        edge [post] (s1)
+        edge [pre] (s2);
+    \node (e2) [transition, below = of c2] {}
+        edge [post] (s1)
+        edge [post] (c2)
+        edge [pre, bend right] (w2)
+        edge [pre] (s2);
+    \node (l1) [transition, above = of c1] {}
+        edge [post, bend right] node[swap] {2} (w1)
+        edge [pre] (c1)
+        edge [pre] (s1)
+        edge [post] (s2);
+    \node (l2) [transition, above = of c2] {}
+        edge [post, bend left] node {2} (w2)
+        edge [pre] (c2)
+        edge [pre] (s1)
+        edge [post] (s2);
+\end{tikzpicture}
+```
+
+![nodecomplex](/img/nodecomplex.jpg)
+
 
 
 ## 后话
@@ -217,7 +298,7 @@ Ti*k*Z中的每条命令用 **分号** 作为结束符。在 `\begin{tikzpicture
 
 ## 参考资料
 
-- [The TikZ and PGF Packages Manual](http://pgf.sourceforge.net/pgf_CVS.pdf)
-- [Manual for Package PgfplotsTable](http://pgfplots.sourceforge.net/pgfplotstable.pdf)
-- [Wikibooks/LaTeX/PGF/TikZ](https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ)
-- [Wikipedia/PGF/TikZ](https://en.wikipedia.org/wiki/PGF/TikZ)
+- [\[1\] The TikZ and PGF Packages Manual](http://pgf.sourceforge.net/pgf_CVS.pdf)
+- [\[2\] Manual for Package PgfplotsTable](http://pgfplots.sourceforge.net/pgfplotstable.pdf)
+- [\[3\] Wikibooks/LaTeX/PGF/TikZ](https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ)
+- [\[4\] Wikipedia/PGF/TikZ](https://en.wikipedia.org/wiki/PGF/TikZ)
