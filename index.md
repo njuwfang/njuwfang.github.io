@@ -1,23 +1,21 @@
 ---
-layout: homepage
+layout: default
 ---
 
 ## About Me
 
-I am a Ph.D. student at ...
+I am a postdoctoral research associate at the School of Informatics, University of Edinburgh, hosted by [Chris Heunen](https://homepages.inf.ed.ac.uk/cheunen/) and [Robin Kaarsgaard](https://rkaarsgaard.github.io/).
+I received my Ph.D. from the Institute of Software, Chinese Academy of Sciences in 2024, where I was fortunate to be supervised by Prof. [Mingsheng Ying](https://profiles.uts.edu.au/Mingsheng.Ying).
+
+<strong><i style="color:#e74d3c">I am currently seeking academic positions, see my [CV]({{ "/cv_Wang_Fang.pdf" | relative_url }})
+ here.</i></strong>
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- Quantum computing
+- Quantum programming languages, including verification and analysis
+- Techniques for classical simulation of quantum circuits
 
-## News
+<!-- {% include_relative _includes/news.md %} -->
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
-
-{% include_relative _includes/publications.md %}
-
-{% include_relative _includes/services.md %}
+{% include_relative _includes/selected_publications.md %}

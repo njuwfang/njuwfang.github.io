@@ -1,22 +1,123 @@
 main:
 
-  - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
-    authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
-    conference_short: MICCAI
-    conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
-    pdf: https://arxiv.org/pdf/2306.00988.pdf
-    code: https://github.com/MrGiovanni/ContinualLearning
-    bibtex: https://bib.yliu.me/MICCAI23.txt
-    image: ./assets/img/teaser_example_2.png
+  - title: "Hadamard-Pi: Equational Quantum Programming"
+    authors: <strong>Wang Fang</strong>, Chris Heunen, Robin Kaarsgaard
+    conference_short: POPL 2026
+    conference_link: https://popl26.sigplan.org/
+    doi: https://doi.org/10.1145/3776647
+    preprint: https://arxiv.org/abs/2506.06835
+    selected: true
+
+  - title: "Approximation Methods for Simulation and Equivalence Checking of Noisy Quantum Circuits"
+    authors: Mingyu Huang, Ji Guan, <strong>Wang Fang</strong>, Mingsheng Ying
+    journal: IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, 2025.
+    conference_short: TCAD
+    conference_link: https://ieee-ceda.org/publications/tcad
+    doi: https://doi.org/10.1109/TCAD.2025.3623498
+    preprint: https://arxiv.org/abs/2503.10340
     notes: Early Accept
 
-  - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
-    authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-    conference_short: CVPR
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
-    pdf: https://arxiv.org/pdf/2002.10211.pdf
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-    notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+  - title: "Optimal Quantum Algorithm for Estimating Fidelity to a Pure State"
+    authors: <strong>Wang Fang</strong>, Qisheng Wang
+    conference_short: ESA 2025
+    conference_link: https://algo-conference.org/2025/esa/
+    doi: https://doi.org/10.4230/LIPIcs.ESA.2025.4
+    preprint: https://arxiv.org/abs/2506.23650
+
+  - title: "Verifying Fault-Tolerance of Quantum Error Correction Codes"
+    authors: Kean Chen, Yuhao Liu, <strong>Wang Fang</strong>, Jennifer Paykin, Xin-Chuan Wu, Albert Schmitz, Steve Zdancewic, Gushu Li
+    conference_short: CAV 2025
+    conference_link: https://conferences.i-cav.org/2025/
+    doi: https://doi.org/10.1007/978-3-031-98685-7_1
+    preprint: https://arxiv.org/abs/2501.14380
+    code: https://github.com/vftqc/vftqecc
+    selected: true
+  
+  - title: "Efficient Formal Verification of Quantum Error Correcting Programs"
+    authors: Qifan Huang, Li Zhou, <strong>Wang Fang</strong>, Mengyu Zhao, Mingsheng Ying
+    conference_short: PLDI 2025
+    conference_link: https://pldi25.sigplan.org/
+    doi: https://doi.org/10.1145/3729293
+    preprint: https://arxiv.org/abs/2504.07732
+    code: https://doi.org/10.5281/zenodo.15248774
+
+  - title: "VeriQR: A Robustness Verification Tool for Quantum Machine Learning Models"
+    authors: Yanling Lin, Ji Guan, <strong>Wang Fang</strong>, Mingsheng Ying, Zhaofeng Su
+    conference_short: FM 2024
+    conference_link: https://www.fm24.polimi.it/
+    doi: https://doi.org/10.1007/978-3-031-71162-6_21
+    preprint: https://arxiv.org/abs/2407.13533
+    code: https://github.com/Veri-Q/VeriQR
+
+  - title: "SymPhase: Phase Symbolization for Fast Simulation of Stabilizer Circuits"
+    authors: <strong>Wang Fang</strong>, Mingsheng Ying
+    conference_short: DAC 2024
+    conference_link: https://61dac.conference-program.com/
+    doi: https://doi.org/10.1145/3649329.3655902
+    preprint: https://arxiv.org/abs/2311.03906
+    code: https://github.com/njuwfang/SymPhase.jl
+    selected: true
+
+  - title: "Symbolic Execution for Quantum Error Correction Programs"
+    authors: <strong>Wang Fang</strong>, Mingsheng Ying
+    conference_short: PLDI 2024
+    conference_link: https://pldi24.sigplan.org/
+    doi: https://doi.org/10.1145/3656419
+    preprint: https://arxiv.org/abs/2311.11313
+    code: https://github.com/njuwfang/QuantumSE.jl
+    selected: true
+
+  - title: "Approximation Algorithm for Noisy Quantum Circuit Simulation"
+    authors: Mingyu Huang, Ji Guan, <strong>Wang Fang</strong>, Mingsheng Ying
+    conference_short: DATE 2024
+    conference_link: https://date24.date-conference.com/
+    doi: https://doi.org/10.23919/DATE58400.2024.10546657
+    preprint: https://arxiv.org/abs/2211.17028
+
+  - title: "Differentiable Quantum Programming with Unbounded Loops"
+    authors: <strong>Wang Fang</strong>, Mingsheng Ying, Xiaodi Wu
+    journal: ACM Transactions on Software Engineering and Methodology, 2023.
+    conference_short: TOSEM
+    conference_link: https://dl.acm.org/journal/tosem
+    doi: https://doi.org/10.1145/3617178
+    preprint: https://arxiv.org/abs/2211.04507
+    code: https://github.com/njuwfang/DifferentiableQPL
+    selected: true
+
+  - title: "Detecting Violations of Differential Privacy for Quantum Algorithms"
+    authors: Ji Guan, <strong>Wang Fang</strong>, Mingyu Huang, Mingsheng Ying
+    conference_short: CCS 2023
+    conference_link: https://www.sigsac.org/ccs/CCS2023/
+    doi: https://doi.org/10.1145/3576915.3623108
+    preprint: https://arxiv.org/abs/2309.04819
+
+  - title: "isQ: An Integrated Software Stack for Quantum Programming"
+    authors: Jingzhe Guo, Huazhe Lou, Jintao Yu, Riling Li, <strong>Wang Fang</strong>, Junyi Liu, Peixun Long, Shenggang Ying, Mingsheng Ying
+    journal: IEEE Transactions on Quantum Engineering, 2023.
+    conference_short: IEEE TQE
+    conference_link: https://tqe.ieee.org/
+    doi: https://doi.org/10.1109/TQE.2023.3275868
+    code: https://github.com/isQ-Team/isQ-Compiler
+
+  - title: "Quantum Algorithm for Fidelity Estimation"
+    authors: Qisheng Wang, Zhicheng Zhang, Kean Chen, Ji Guan, <strong>Wang Fang</strong>, Junyi Liu, Mingsheng Ying
+    journal: IEEE Transactions on Information Theory, 2023.
+    conference_short: TIT
+    conference_link: https://www.itsoc.org/it-trans
+    doi: https://doi.org/10.1109/TIT.2022.3203985
+    preprint: https://arxiv.org/abs/2103.09076
+
+  - title: "Verifying Fairness in Quantum Machine Learning"
+    authors: Ji Guan, <strong>Wang Fang</strong>, Mingsheng Ying
+    conference_short: CAV 2022
+    conference_link: https://i-cav.org/2022/
+    doi: https://doi.org/10.1007/978-3-031-13188-2_20
+    preprint: https://arxiv.org/abs/2207.11173
+    code: https://github.com/Veri-Q/Fairness
+
+  - title: "Robustness Verification of Quantum Classifiers"
+    authors: Ji Guan, <strong>Wang Fang</strong>, Mingsheng Ying
+    conference_short: CAV 2021
+    conference_link: https://i-cav.org/2021/
+    doi: https://doi.org/10.1007/978-3-030-81685-8_7
+    preprint: https://arxiv.org/abs/2008.07230
