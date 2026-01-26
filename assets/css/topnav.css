@@ -17,7 +17,7 @@
   max-width: calc(var(--wrap-w));
   margin: 0 auto;
   height: 100%;
-  padding: 0 80px 0 12px;
+  padding: 0 12px;
 
   display: flex;
   align-items: center;
