@@ -1,0 +1,37 @@
+<ul class="publications-list">
+  {% for publication in include.publications %}
+    <li class="publication-item">
+      <div class="pub-row">
+        <div class="publication-details">
+          <div class="title"><strong>{{ publication.title }}</strong></div>
+          <div class="author">{{ publication.authors }}</div>
+
+          {% if publication.journal %}
+            <div class="periodical"><em>{{ publication.journal }}</em></div>
+          {% elsif publication.conference %}
+            <div class="periodical"><em>{{ publication.conference }}</em></div>
+          {% endif %}
+
+          {% if publication.conference_short or publication.preprint or publication.doi or publication.pdf or publication.page or publication.code or publication.github %}
+            <span class="paper-links">
+              {% if publication.conference_short and publication.conference_link %}
+                <a href="{{ publication.conference_link }}" target="_blank" rel="noopener">{{ publication.conference_short }}</a>
+              {% elsif publication.conference_short %}
+                <span class="paper-link-label">{{ publication.conference_short }}</span>
+              {% endif %}
+              {% if publication.doi %}<a href="{{ publication.doi }}" target="_blank" rel="noopener">[DOI]</a>{% endif %}
+              {% if publication.preprint %}<a href="{{ publication.preprint }}" target="_blank" rel="noopener">[arXiv]</a>{% endif %}
+              {% if publication.pdf %}<a href="{{ publication.pdf }}" target="_blank" rel="noopener">[PDF]</a>{% endif %}
+              {% if publication.page %}<a href="{{ publication.page }}" target="_blank" rel="noopener">[Project]</a>{% endif %}
+              {% if publication.code %}<a href="{{ publication.code }}" target="_blank" rel="noopener">[Code]</a>{% endif %}
+              {% if publication.github %}<a href="{{ publication.github }}" target="_blank" rel="noopener">[GitHub]</a>{% endif %}
+            </span>
+          {% endif %}
+
+          {% if publication.notes %}<strong class="publication-note"><em>{{ publication.notes }}</em></strong>{% endif %}
+          {% if publication.others %}{{ publication.others }}{% endif %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

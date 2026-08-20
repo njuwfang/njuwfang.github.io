@@ -1,5 +1,13 @@
 main:
 
+  - title: "Formal Verification of Quantum Ancilla Safety"
+    authors: Jiqi Li, Jingyi Mei, <strong>Wang Fang</strong>, Ji Guan
+    conference_short: CAV 2026
+    conference_link: https://i-cav.org/2026/
+    doi: https://doi.org/10.1007/978-3-032-32537-2_16
+    preprint: https://arxiv.org/abs/2608.13099
+    code: https://github.com/Veri-Q/Ancilla-Safety
+
   - title: "Hadamard-Pi: Equational Quantum Programming"
     authors: <strong>Wang Fang</strong>, Chris Heunen, Robin Kaarsgaard
     conference_short: POPL 2026
@@ -15,7 +23,6 @@ main:
     conference_link: https://ieee-ceda.org/publications/tcad
     doi: https://doi.org/10.1109/TCAD.2025.3623498
     preprint: https://arxiv.org/abs/2503.10340
-    notes: Early Accept
 
   - title: "Optimal Quantum Algorithm for Estimating Fidelity to a Pure State"
     authors: <strong>Wang Fang</strong>, Qisheng Wang

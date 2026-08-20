@@ -10,8 +10,16 @@ permalink: /cv/
 
 <div class="cv-item">
   <span class="cv-icon"><i class="fas fa-laptop-code"></i></span>
-  <div class="cv-text">
-    <div class="cv-title">Postdoctoral Research Associate, 2024–Present</div>
+  <div>
+    <div class="cv-title">Assistant Professor, 2026–Present</div>
+    <div class="cv-subtitle">College of Computing and Artificial Intelligence, United Arab Emirates University</div>
+  </div>
+</div>
+
+<div class="cv-item">
+  <span class="cv-icon"><i class="fas fa-laptop-code"></i></span>
+  <div>
+    <div class="cv-title">Postdoctoral Research Associate, 2024–2026</div>
     <div class="cv-subtitle">School of Informatics, University of Edinburgh</div>
     <div class="cv-subtitle">Advisor (PI): Chris Heunen and Robin Kaarsgaard</div>
   </div>
@@ -21,7 +29,7 @@ permalink: /cv/
 
 <div class="cv-item">
   <span class="cv-icon"><i class="fas fa-graduation-cap"></i></span>
-  <div class="cv-text">
+  <div>
     <div class="cv-title">Ph.D. in Computer Science, 2024</div>
     <div class="cv-subtitle">Institute of Software, Chinese Academy of Sciences</div>
     <div class="cv-subtitle">Thesis title: <i>Automation Techniques for Quantum Programming: Symbolic Execution and Automatic Differentiation</i></div>
@@ -31,7 +39,7 @@ permalink: /cv/
 
 <div class="cv-item">
   <span class="cv-icon"><i class="fas fa-graduation-cap"></i></span>
-  <div class="cv-text">
+  <div>
     <div class="cv-title">B.S. in Mathematics, 2018</div>
     <div class="cv-subtitle">Department of Mathematics, Nanjing University</div>
   </div>

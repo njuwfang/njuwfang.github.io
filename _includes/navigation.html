@@ -1,0 +1,15 @@
+<nav class="top-nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <ul id="nav-menu" class="nav-menu">
+      {% for link in site.data.navigation.main %}
+        <li><a class="nav-link" href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<!doctype html>
+<html lang="{{ site.lang }}">
   <head>
-
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ site.author }} | {{ site.affiliation }}</title>
     <meta name="description" content="{{ site.description }}" />
-
-    {% if site.keywords %}
-      <meta name="keywords" content="{{ site.keywords }}" />
-    {% endif %}
-
-    {% if site.canonical %}
-      <link rel="canonical" href="{{ site.canonical }}" />
-    {% endif %}
-
+    {% if site.keywords %}<meta name="keywords" content="{{ site.keywords }}" />{% endif %}
+    {% if site.canonical %}<link rel="canonical" href="{{ site.canonical }}" />{% endif %}
 
     <link
       rel="stylesheet"
@@ -30,142 +21,33 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-    <link rel="stylesheet" href="{{ '/assets/css/topnav.css' | relative_url }}" />
-
   </head>
 
   <body>
-
-    <nav class="top-nav" aria-label="Primary">
-  <div class="nav-inner">
-    <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
-    </button>
-
-    <ul id="nav-menu" class="nav-menu">
-      {% for link in site.data.navigation.main %}
-        <a class="nav-link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
-      {% endfor %}
-    </ul>
-  </div>
-</nav>
-
-    <script src="{{ "/assets/js/vanilla-back-to-top.min.js" | relative_url }}"></script>
-    <script>addBackToTop({
-        backgroundColor: '#fff',
-        innerHTML: 'Back to Top',
-        textColor: '#333'
-      })
-    </script>
+    {% include navigation.html %}
+    <button id="back-to-top" type="button" aria-label="Back to top">Back to Top</button>
 
     <div class="wrapper">
-      <header>
-        {% if site.avatar %}
-          <a class="image avatar" href="{{ '/' | relative_url }}">
-            <img src="{{ site.avatar | relative_url }}" alt="avatar" />
-          </a>
-        {% endif %}
-
-        <h2>{{ site.author }}</h2>
-
-        {% if site.position %}
-          {{ site.position }}<br>
-        {% endif %}
-
-        {% if site.affiliation %}
-          <a href="{{ site.affiliation_link }}" rel="noopener">
-            <autocolor>{{ site.affiliation }}</autocolor>
-          </a><br />
-        {% endif %}
-
-        {% if site.email %}
-          <email>{{ site.email }}</email>
-        {% endif %}
-
-        <div style="height: 18px;"></div>
-
-        <div class="social-icons" aria-label="Social links">
-          {% if site.google_scholar %}
-            <a href="{{ site.google_scholar }}" aria-label="Google Scholar">
-              <i class="ai ai-google-scholar" style="font-size: 1.2rem;"></i>
-            </a>
-          {% endif %}
-
-          {% if site.cv_link %}
-            <a href="{{ site.cv_link }}" aria-label="CV">
-              <i class="ai ai-cv" style="font-size: 1.3rem;"></i>
-            </a>
-          {% endif %}
-
-          {% if site.github_link %}
-            <a href="{{ site.github_link }}" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-          {% endif %}
-
-          {% if site.orcid %}
-            <a href="{{ site.orcid }}" aria-label="ORCiD">
-              <i class="ai ai-orcid" style="font-size: 1.2rem;"></i>
-            </a>
-          {% endif %}
-
-          {% if site.dblp %}
-            <a href="{{ site.dblp }}" aria-label="dblp">
-              <i class="ai ai-dblp" style="font-size: 1.2rem;"></i>
-            </a>
-          {% endif %}
-
-          {% if site.linkedin %}
-            <a href="{{ site.linkedin }}" aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          {% endif %}
-
-          {% if site.twitter %}
-            <a href="{{ site.twitter }}" aria-label="X / Twitter">
-              <i class="fab fa-x-twitter"></i>
-            </a>
-          {% endif %}
-        </div>
-      </header>
+      {% include profile.html %}
 
       <main>
         <section>
           {{ content }}
 
           {% if site.enable_footnote %}
-            <p>
+            <p class="footnote">
               <small>
                 Powered by Jekyll and
-                <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">
-                  Minimal Light
-                </a>
+                <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a>
                 theme.
               </small>
             </p>
           {% endif %}
         </section>
       </main>
-
-      <footer></footer>
     </div>
 
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/topnav.js' | relative_url }}"></script>
-
-    {% if site.google_analytics %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {% endif %}
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
   </body>
 </html>

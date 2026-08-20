@@ -1,63 +1,42 @@
-# Basic Information 
 title: Wang Fang's Homepage
+lang: en-US
 author: Wang Fang 方望
-position: Research Associate
-affiliation: University of Edinburgh
+position: Assistant Professor
+affiliation: United Arab Emirates University
 email: njuwfang (at) gmail.com
 
-# Search Engine Optimization (SEO)
-# The following information is used to improve the website traffic from search engines, e.g., Google.
 keywords: quantum computing, quantum programming languages
-description: Wang Fang is a postdoctoral research associate at the School of Informatics, University of Edinburgh. His research lies in quantum computing and quantum programming languages.
+description: Wang Fang is an Assistant Professor at the College of Computing and Artificial Intelligence, United Arab Emirates University. His research lies in quantum computing and quantum programming languages.
 canonical: https://njuwfang.github.io
 
-# Links 
-# If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/citations?user=4D3FWQIAAAAJ&hl=en
-# cv_link: assets/files/curriculum_vitae.pdf
-github_link: https://github.com/njuwfang
-# linkedin: https://www.linkedin.com/
-# twitter: https://twitter.com/
-orcid: https://orcid.org/0000-0001-7628-1185
-dblp: https://dblp.org/pid/400/7636-1
+avatar: /assets/img/xjpic.jpg
 
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/xjpic.jpg
-# favicon: ./assets/img/favicon.png
-# favicon_dark: ./assets/img/favicon-dark.png
+social_links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=4D3FWQIAAAAJ&hl=en
+    icon: ai ai-google-scholar
+  - label: GitHub
+    url: https://github.com/njuwfang
+    icon: fab fa-github
+  - label: ORCID
+    url: https://orcid.org/0000-0001-7628-1185
+    icon: ai ai-orcid
+  - label: DBLP
+    url: https://dblp.org/pid/400/7636-1
+    icon: ai ai-dblp
 
-# Footnote
-# You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
 enable_footnote: true
-
-# Auto Dark Mode
-# You may use the option to disable the automatic dark theme
-auto_dark_mode: true
-
-# Font
-# You can use this option to choose between Serif or Sans Serif fonts.
-# font: "Serif" # or "Sans Serif"
-
-# Google Analytics ID
-# Please remove this if you don't use Google Analytics
-# google_analytics: UA-111540567-4
-
-# Use this project as a remote theme for GitHub Pages
-# See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-remote_theme: yaoyao-liu/minimal-light
 
 include:
   - _pages
 
-# The following files will be removed from the generated website.
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Dockerfile
+  - docker-compose.yaml
   - README.md
   - README_zh_Hans.md
   - README_zh_Hant.md
   - README_de.md
   - LICENSE
-  - minimal-light.gemspec
-  - html_source_file/
